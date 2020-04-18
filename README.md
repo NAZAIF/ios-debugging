@@ -49,8 +49,8 @@ The most effective debugging tool is still careful thought, coupled with judicio
  - Hidden information is counter productive. So, it's extremely important to clarify assumptions
  - Unencoded assumptions are fair game for bugs to creep in and disappoint your functionality expectations
  - Be explicit about your assumptions
-  * Guard: Encode assumptions with guards
-  * Test: Write unit tests to define your expectations
+   * Guard: Encode assumptions with guards
+   * Test: Write unit tests to define your expectations
  
  ### Inspection of Changes
  - Check source control logs and diffs
@@ -62,17 +62,17 @@ The most effective debugging tool is still careful thought, coupled with judicio
  
  ### Revise one at a time
  - When you do start to attempt bug fixes, you inevitably change code. Try to revise one thing at a time to keep your sanity
-  * This doesn't necessarily mean change only one word or one line at a time
-  * It's about changing one concept or unit at a time
+   * This doesn't necessarily mean change only one word or one line at a time
+   * It's about changing one concept or unit at a time
  - Make a new branch for bugfix attempt
  - Change one thing; if fixed, great. If the bug persists, revert the change and attempt a different fix
  
  # Problem solving is something you and I will always do and always mature in
  
  ## Categorizing problems for Strategic Resolution
- - Ask 
-  * "What big picture kind of problems can I run into?"
-  * "How can I begin to categorize the runtime problems I will experience as I develop apps?"
+ - Ask:
+   * "What big picture kind of problems can I run into?"
+   * "How can I begin to categorize the runtime problems I will experience as I develop apps?"
  
  ## Categorizing Problems
  To help you make initial educated guess
@@ -87,4 +87,50 @@ The most effective debugging tool is still careful thought, coupled with judicio
  
  You might start to ask:
     "What do I believe my code is doing?" vs "What is my app actually doing?"
- Write it down or saying it loud may help you formulate your first hypothesis and start down your first
+ Write it down or saying it loud may help you formulate your first hypothesis and start down your first debugging adventure path
+ 
+ ### App Crashes
+ - Apps doesn't crash for no reason at all
+ - Crashes signal one of two things to you: 
+   * You wrote some instructions that are impossible for your iOS device to follow, or
+   * The developer of a framework or a function you're using is preventing a failure by raising an error that kills your app
+ - When an app creashes, ask:
+   * "Why can't iOS follow instructions I gave it?
+   * "Is it preventing me from doing something impossible or nonsensical?"
+   * "Is the developer of this framework or function stopping me from misusing the API somehow?"
+   * "What do I not understand about this framework or API?"
+  
+ ### Anomalies
+ - Most challenging and infuriating bugs to track down and resolve.
+ - When you say "Something weird is going on.", definitely pay attention to REPAIR principles
+ - Knowing that problems can arise in a general way could lead to knowing where you can look
+ - What are some hot spots that you could check into as you choose your own debugging adventure?
+ 
+ ## Identifying most common Bug Sources
+ - Where do I even start when it comes to fixing a bug?
+ 
+ ### 5 common Bug Sources
+ - Logic mistakes
+ - Incorrect state
+ - The Force(!) operator - Optionals, try-catch, typecasts
+ - Misusing APIs
+ - Within UI components
+ 
+ #### Logic Mistakes
+ - Encoded at development time 
+ - Evaluated at runtime
+ - Could a piece of code be executing when you thought a different piece of code would? Like control flow statements used wrongly
+ - Are you noticing flip flopped or 'oppsite'-type symptoms?
+ - Logic Hot Spots => Functions and code blocks where calculations or transformations re performed
+ 
+ #### Encoding App Logic
+ - Series of checks
+ - Comparisons
+ - Code Execution direction changes
+ 
+ #### State
+ - What are the values of your variables of a given point in time during your app execution?
+ - What is the data you're working with at key logical decision points in your app's control flow?
+ 
+ #### Self-caused Logic Mistakes
+ - Where did the values that are currently being used in my app's logic came from?
