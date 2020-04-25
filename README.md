@@ -120,7 +120,7 @@ The most effective debugging tool is still careful thought, coupled with judicio
  - Encoded at development time 
  - Evaluated at runtime
  - Could a piece of code be executing when you thought a different piece of code would? Like control flow statements used wrongly
- - Are you noticing flip flopped or 'oppsite'-type symptoms?
+ - Are you noticing flip flopped or 'opposite'-type symptoms?
  - Logic Hot Spots => Functions and code blocks where calculations or transformations re performed
  
  #### Encoding App Logic
@@ -144,5 +144,24 @@ The most effective debugging tool is still careful thought, coupled with judicio
 
 ## Xcode tools and techniques for tests
 - Code coverage
-- Performance tests
+- Writing performance tests with measure
 - Parelleliziing and randomizing tests
+
+## UI Testing
+UI tests run in a separate process. You don't have access to the code of your app. Instead you have proxy classes that you interact with your UI tests inorder to have access to your actual app elements. UI tests are slower than all other types of tests
+
+### XCUIElement and XCUIElementQuery
+- XCUIElement
+  * XCUIElementApplication
+    - Tables
+    - NavigationBars 
+    - Buttons
+- XCUIElementQuery
+  * children
+  * descendants
+  
+* Test Navigation of the app
+* Test functionality of the app
+* Xcode UI recording gives you the code you need to write UI tests.
+
+## Testing View Controllers
