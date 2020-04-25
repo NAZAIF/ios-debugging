@@ -1,4 +1,4 @@
-# ios-debugging
+# iOS Debugging
 
 The most effective debugging tool is still careful thought, coupled with judiciously placed print statements. - Brian Kernighan
 
@@ -134,3 +134,15 @@ The most effective debugging tool is still careful thought, coupled with judicio
  
  #### Self-caused Logic Mistakes
  - Where did the values that are currently being used in my app's logic came from?
+
+
+# iOS Testing
+- Setting up Test Schemes
+- Writing logic-based tests
+- Writing Integration tests making requests to vapor server
+- Writing tests using mocks
+
+## Xcode tools and techniques for tests
+- Code coverage
+- Performance tests
+- Parelleliziing and randomizing tests
