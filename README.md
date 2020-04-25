@@ -165,3 +165,5 @@ UI tests run in a separate process. You don't have access to the code of your ap
 * Xcode UI recording gives you the code you need to write UI tests.
 
 ## Testing View Controllers
+- Test viewDidLoad()
+- Multiple Test Expectations
